@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+<% /*
+    <button>Request!!</button>
+*/ %>
+    <div class="wrapper">
+      <form action="/" method="post" class="board-form">
+        title: <input type="text" name="title" class="input" required><br>
+        <br>
+        <button type="submit" class="submit">board</button>
+      </form>
+    <ul class="main-list">
+      <h2>new history</h2>
+        <p><%= boardList.count[0].countAll %>件です</p>
+        <% boardList['history'].forEach(function(boardItem) { %>
+            <li class="main-list_item">
+                <div class="board">
+                    <p class="board_title"><%= boardItem.title %></p>
+                    <p class="board_date"><%= boardItem.created_at %></p>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+      $('button').on('click', function() {
+        socket.emit('request');
+      });
+      socket.on('response', function() {
+        alert('Get Response!!');
+      });
+    </script>
+  </body>
+</html>
