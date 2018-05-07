@@ -31,18 +31,25 @@ router.get('/', function(req, res, next) {
     	};
 	});
 });	
-var tableName = 'boards';
-var columnName = ['title', 'created_at'];
 
 router.post('/', function(req, res, next){	
 	var title = req.body.title;
+//	var user_id = req.session.user_id? req.session.user_id: 0; 
+	var user_id = 0; /* temporary */
 	var created_at = moment().format('YYYY-MM-DD HH:mm:ss');
-	var values = '("' + title + '", ' + '"' + created_at + '")';
+
+	/* query info */
+	var tableName = 'boards';
+//	var columnName = ['title', 'created_at'];
+	var columnName = ['user_id', 'title', 'created_at'];
+//	var values = '("' + title + '", ' + '"' + created_at + '")';
+	var values = '("' + user_id + '", "' + title + '", "' + created_at + '")';
+
 	var query = insertSQL.insertSQL(tableName, columnName, values);
+	console.log(query);
 	pool.query(query, [values], function(err, rows){
 		res.redirect('/');
 	})
 })
-
 
 module.exports = router;

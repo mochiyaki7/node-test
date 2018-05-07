@@ -20,10 +20,10 @@
         <p><%= boardList.count[0].countAll %>件です</p>
         <% boardList['history'].forEach(function(boardItem) { %>
             <li class="main-list_item">
-                <div class="board">
+                <a href="/boards/<%= boardItem.board_id %>" class="board">
                     <p class="board_title"><%= boardItem.title %></p>
                     <p class="board_date"><%= boardItem.created_at %></p>
-                </div>
+                </a>
             </li>
         <% }); %>
     </ul>
