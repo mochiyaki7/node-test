@@ -127,6 +127,12 @@ input:-webkit-autofill, textarea:-webkit-autofill {
     border: 1px #ccc solid;
     background-color: #fff;
 }
+.message {
+    display: block;
+    padding: 10px;
+    border: 1px #ccc solid;
+    background-color: #fff;
+}
 .message__image {
     display: block;
     margin-bottom: 10px;
