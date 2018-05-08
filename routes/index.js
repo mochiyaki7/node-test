@@ -6,8 +6,8 @@ var pool = require('./mysqlConnection.js').pool;
 var insertSQL = require('./insert.js');
 var sql = require('./query.js');
 
-var historyQuery = sql['query']['limit'];
-var countQuery = sql['query']['count'];
+var historyQuery = sql['query']['limitBoard'];
+var countQuery = sql['query']['countBoard'];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

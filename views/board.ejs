@@ -12,6 +12,7 @@
     <p class="main-title"><%= title %></p>
     <% if (messageList.length){ %>
     <ul class="main-list">
+        <p>メッセージは<%= messageList.length %>件です</p>
     	<% messageList.forEach(function(messageItem){ %>
     		<li class="main-list__item">
     			<div class="message">
